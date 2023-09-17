@@ -1,0 +1,7 @@
+.table-responsive {
+    max-width: 90%; /* Adjust this value to control the maximum width */
+    margin: 20px 0 auto; /* Center the table horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+
+  
