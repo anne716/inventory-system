@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar";
 import "./Home.css";
+import Table from "./ProductTable/Table";
 
 function Home() {
   return (
@@ -84,6 +85,8 @@ function Home() {
         <button type="button" className="btn btn-primary btn-sm fw-semibold">
           Add Inventory Item
         </button>
+
+        <Table />
       </div>
     </>
   );
