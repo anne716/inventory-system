@@ -1,3 +1,5 @@
+import * as Icon from "react-bootstrap-icons";
+
 import "./Table.css";
 
 function Table() {
@@ -21,7 +23,17 @@ function Table() {
             <td>Apple Macbook Pro 13"</td>
             <td>Laptop</td>
             <td>123456789</td>
-            <td>icons to be filled</td>
+            <td>
+              <div className="icon-wrapper">
+                <Icon.PencilSquare />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.TrashFill />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.ClipboardFill />
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row">2</th>
@@ -29,7 +41,17 @@ function Table() {
             <td>Hewlett Packard 15.6"</td>
             <td>Laptop</td>
             <td>646874827487</td>
-            <td>icons to be filled</td>
+            <td>
+              <div className="icon-wrapper">
+                <Icon.PencilSquare />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.TrashFill />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.ClipboardFill />
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row">3</th>
@@ -37,7 +59,17 @@ function Table() {
             <td>iPad 32GB w/Retina</td>
             <td>Tablet</td>
             <td>382557836</td>
-            <td>icons to be filled</td>
+            <td>
+              <div className="icon-wrapper">
+                <Icon.PencilSquare />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.TrashFill />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.ClipboardFill />
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row">4</th>
@@ -45,7 +77,17 @@ function Table() {
             <td>Samsung Galaxy Tab E Lite</td>
             <td>Tablet</td>
             <td>3761846472</td>
-            <td>icons to be filled</td>
+            <td>
+              <div className="icon-wrapper">
+                <Icon.PencilSquare />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.TrashFill />
+              </div>
+              <div className="icon-wrapper">
+                <Icon.ClipboardFill />
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
