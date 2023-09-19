@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar";
 import "./Home.css";
 import Table from "./ProductTable/Table";
+import Modals from "../../components/Modal/Modals";
 
 function Home() {
   return (
@@ -81,10 +82,7 @@ function Home() {
           </div>
         </div>
 
-        {/* Add Inventory Item Button */}
-        <button type="button" className="btn btn-primary btn-sm fw-semibold">
-          Add Inventory Item
-        </button>
+        <Modals />
 
         <Table />
       </div>
