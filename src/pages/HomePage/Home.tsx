@@ -37,9 +37,9 @@ function Home() {
             style={{ width: "auto" }}
           >
             <option selected>Status...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">In Stock</option>
+            <option value="2">Out of Stack</option>
+            <option value="3">Discontinued</option>
           </select>
 
           {/* Sort By Select Field */}

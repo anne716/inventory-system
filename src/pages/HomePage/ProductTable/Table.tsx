@@ -31,7 +31,7 @@ function Table() {
                 <Icon.TrashFill />
               </div>
               <div className="icon-wrapper">
-                <Icon.ClipboardFill />
+                <Icon.InfoCircle />
               </div>
             </td>
           </tr>
@@ -49,7 +49,7 @@ function Table() {
                 <Icon.TrashFill />
               </div>
               <div className="icon-wrapper">
-                <Icon.ClipboardFill />
+                <Icon.InfoCircle />
               </div>
             </td>
           </tr>
@@ -67,7 +67,7 @@ function Table() {
                 <Icon.TrashFill />
               </div>
               <div className="icon-wrapper">
-                <Icon.ClipboardFill />
+                <Icon.InfoCircle />
               </div>
             </td>
           </tr>
@@ -85,7 +85,7 @@ function Table() {
                 <Icon.TrashFill />
               </div>
               <div className="icon-wrapper">
-                <Icon.ClipboardFill />
+                <Icon.InfoCircle />
               </div>
             </td>
           </tr>
