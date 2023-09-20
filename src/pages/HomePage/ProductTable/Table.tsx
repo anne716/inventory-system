@@ -1,8 +1,30 @@
+import { useState } from "react";
 import * as Icon from "react-bootstrap-icons";
 
 import "./Table.css";
 
 function Table() {
+  // Define a state variable to keep track of the selected row or item
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  // Function to handle edit icon click
+  const handleEditClick = (itemId: number) => {
+    // Perform action related to editing the item with itemId
+    console.log(`Edit item with ID ${itemId}`);
+  };
+
+  // Function to handle delete icon click
+  const handleDeleteClick = (itemId: number) => {
+    // Perform action related to deleting the item with itemId
+    console.log(`Delete item with ID ${itemId}`);
+  };
+
+  // Function to handle info icon click
+  const handleInfoClick = (itemId: number) => {
+    // Perform action related to showing info about the item with itemId
+    console.log(`Show info for item with ID ${itemId}`);
+  };
+
   return (
     <div className="table-responsive">
       <table className="table table-sm table-bordered table-hover">
@@ -25,13 +47,22 @@ function Table() {
             <td>123456789</td>
             <td>
               <div className="icon-wrapper">
-                <Icon.PencilSquare />
+                <Icon.PencilSquare
+                  onClick={() => handleEditClick(1)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.TrashFill />
+                <Icon.TrashFill
+                  onClick={() => handleDeleteClick(1)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.InfoCircle />
+                <Icon.InfoCircle
+                  onClick={() => handleInfoClick(1)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             </td>
           </tr>
@@ -43,13 +74,22 @@ function Table() {
             <td>646874827487</td>
             <td>
               <div className="icon-wrapper">
-                <Icon.PencilSquare />
+                <Icon.PencilSquare
+                  onClick={() => handleEditClick(2)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.TrashFill />
+                <Icon.TrashFill
+                  onClick={() => handleDeleteClick(2)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.InfoCircle />
+                <Icon.InfoCircle
+                  onClick={() => handleInfoClick(2)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             </td>
           </tr>
@@ -61,13 +101,22 @@ function Table() {
             <td>382557836</td>
             <td>
               <div className="icon-wrapper">
-                <Icon.PencilSquare />
+                <Icon.PencilSquare
+                  onClick={() => handleEditClick(3)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.TrashFill />
+                <Icon.TrashFill
+                  onClick={() => handleDeleteClick(3)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.InfoCircle />
+                <Icon.InfoCircle
+                  onClick={() => handleInfoClick(3)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             </td>
           </tr>
@@ -79,13 +128,22 @@ function Table() {
             <td>3761846472</td>
             <td>
               <div className="icon-wrapper">
-                <Icon.PencilSquare />
+                <Icon.PencilSquare
+                  onClick={() => handleEditClick(4)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.TrashFill />
+                <Icon.TrashFill
+                  onClick={() => handleDeleteClick(4)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
               <div className="icon-wrapper">
-                <Icon.InfoCircle />
+                <Icon.InfoCircle
+                  onClick={() => handleInfoClick(4)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             </td>
           </tr>
