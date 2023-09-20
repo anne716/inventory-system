@@ -5,7 +5,23 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-function Modals() {
+// Define the type for your item object (adjust as needed)
+type ItemType = {
+  id: number;
+  number: number;
+  name: string;
+  category: string;
+  serialNumber: string;
+  quantity: string;
+  units: string;
+  description: string;
+};
+
+interface ModalsProps {
+  onAddItem: (item: ItemType) => void;
+}
+
+function Modals({ onAddItem }: ModalsProps) {
   const [show, setShow] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -23,34 +39,40 @@ function Modals() {
       .padStart(9, "0");
   };
 
-  // State variable to store item ID
   const [itemId, setItemId] = useState(1); // Initialize with 1
-
-  // State variable to store item number
   const [itemNumber, setItemNumber] = useState(1); // Initialize with 1
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleSubmit = () => {
-    setShowSuccess(true);
-
-    // Generate a random 9-digit serial number
     const serialNumber = generateSerialNumber();
 
-    // Log the input data to the console along with the item ID and item number
-    console.log("ID #:", itemId);
-    console.log("Number:", itemNumber);
-    console.log("Name:", itemName);
-    console.log("Category:", itemType);
-    console.log("Serial #:", serialNumber);
-    console.log("Quantity:", quantity);
-    console.log("Units:", units);
-    console.log("Description:", description);
+    const newItem: ItemType = {
+      id: itemId,
+      number: itemNumber,
+      name: itemName,
+      category: itemType,
+      serialNumber: serialNumber,
+      quantity: quantity,
+      units: units,
+      description: description,
+    };
+
+    onAddItem(newItem);
 
     // Increment the item ID and item number for the next item
     setItemId(itemId + 1);
     setItemNumber(itemNumber + 1);
+
+    // Clear the form inputs
+    setItemType("");
+    setItemName("");
+    setQuantity("");
+    setUnits("");
+    setDescription("");
+
+    setShowSuccess(true);
   };
 
   const handleCloseSuccess = () => {
@@ -87,6 +109,7 @@ function Modals() {
               <Form.Label>Select Item Type:</Form.Label>
               <Form.Select
                 aria-label="Default select example1"
+                value={itemType}
                 onChange={(e) => setItemType(e.target.value)}
               >
                 <option>Item Type</option>
@@ -100,6 +123,7 @@ function Modals() {
               <Form.Label>Item Name:</Form.Label>
               <Form.Control
                 type="text"
+                value={itemName}
                 onChange={(e) => setItemName(e.target.value)}
               />
             </Form.Group>
@@ -113,6 +137,7 @@ function Modals() {
                 <Form.Label>Quantity:</Form.Label>
                 <Form.Control
                   type="number"
+                  value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </Form.Group>
@@ -125,6 +150,7 @@ function Modals() {
                 <Form.Label>Units:</Form.Label>
                 <Form.Select
                   aria-label="Default select example2"
+                  value={units}
                   onChange={(e) => setUnits(e.target.value)}
                 >
                   <option>units</option>
@@ -143,6 +169,7 @@ function Modals() {
               <Form.Control
                 as="textarea"
                 rows={3}
+                value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
             </Form.Group>

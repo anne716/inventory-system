@@ -1,9 +1,31 @@
+import { useState } from "react";
+
 import Navbar from "../../components/Navbar";
 import "./Home.css";
 import Table from "./ProductTable/Table";
 import Modals from "../../components/Modal/Modals";
 
+type ItemType = {
+  id: number;
+  number: number;
+  name: string;
+  category: string;
+  serialNumber: string;
+  quantity: string;
+  units: string;
+  description: string;
+};
+
 function Home() {
+  // Define state for managing items
+  const [items, setItems] = useState<ItemType[]>([]); // Specify ItemType[] here
+
+  // Function to add a new item
+  const handleAddItem = (newItem: ItemType) => {
+    // Specify ItemType here as well
+    setItems([...items, newItem]);
+  };
+
   return (
     <>
       <Navbar />
@@ -82,9 +104,11 @@ function Home() {
           </div>
         </div>
 
-        <Modals />
+        {/* Pass the handleAddItem function to Modals component */}
+        <Modals onAddItem={handleAddItem} />
 
-        <Table />
+        {/* Pass the items state to Table component */}
+        <Table items={items} />
       </div>
     </>
   );

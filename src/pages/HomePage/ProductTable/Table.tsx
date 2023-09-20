@@ -3,25 +3,35 @@ import * as Icon from "react-bootstrap-icons";
 
 import "./Table.css";
 
-function Table() {
+// Define the type for your item object (adjust as needed)
+type ItemType = {
+  id: number;
+  number: number;
+  name: string;
+  category: string;
+  serialNumber: string;
+  quantity: string;
+  units: string;
+  description: string;
+};
+
+interface TableProps {
+  items: ItemType[];
+}
+
+function Table({ items }: TableProps) {
   // Define a state variable to keep track of the selected row or item
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // Function to handle edit icon click
   const handleEditClick = (itemId: number) => {
-    // Perform action related to editing the item with itemId
     console.log(`Edit item with ID ${itemId}`);
   };
 
-  // Function to handle delete icon click
   const handleDeleteClick = (itemId: number) => {
-    // Perform action related to deleting the item with itemId
     console.log(`Delete item with ID ${itemId}`);
   };
 
-  // Function to handle info icon click
   const handleInfoClick = (itemId: number) => {
-    // Perform action related to showing info about the item with itemId
     console.log(`Show info for item with ID ${itemId}`);
   };
 
@@ -39,114 +49,35 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>1</td>
-            <td>Apple Macbook Pro 13"</td>
-            <td>Laptop</td>
-            <td>123456789</td>
-            <td>
-              <div className="icon-wrapper">
-                <Icon.PencilSquare
-                  onClick={() => handleEditClick(1)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.TrashFill
-                  onClick={() => handleDeleteClick(1)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.InfoCircle
-                  onClick={() => handleInfoClick(1)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>2</td>
-            <td>Hewlett Packard 15.6"</td>
-            <td>Laptop</td>
-            <td>646874827487</td>
-            <td>
-              <div className="icon-wrapper">
-                <Icon.PencilSquare
-                  onClick={() => handleEditClick(2)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.TrashFill
-                  onClick={() => handleDeleteClick(2)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.InfoCircle
-                  onClick={() => handleInfoClick(2)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>3</td>
-            <td>iPad 32GB w/Retina</td>
-            <td>Tablet</td>
-            <td>382557836</td>
-            <td>
-              <div className="icon-wrapper">
-                <Icon.PencilSquare
-                  onClick={() => handleEditClick(3)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.TrashFill
-                  onClick={() => handleDeleteClick(3)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.InfoCircle
-                  onClick={() => handleInfoClick(3)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>4</td>
-            <td>Samsung Galaxy Tab E Lite</td>
-            <td>Tablet</td>
-            <td>3761846472</td>
-            <td>
-              <div className="icon-wrapper">
-                <Icon.PencilSquare
-                  onClick={() => handleEditClick(4)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.TrashFill
-                  onClick={() => handleDeleteClick(4)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-              <div className="icon-wrapper">
-                <Icon.InfoCircle
-                  onClick={() => handleInfoClick(4)}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            </td>
-          </tr>
+          {items.map((item) => (
+            <tr key={item.id}>
+              <th scope="row">{item.id}</th>
+              <td>{item.number}</td>
+              <td>{item.name}</td>
+              <td>{item.category}</td>
+              <td>{item.serialNumber}</td>
+              <td>
+                <div className="icon-wrapper">
+                  <Icon.PencilSquare
+                    onClick={() => handleEditClick(item.id)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+                <div className="icon-wrapper">
+                  <Icon.TrashFill
+                    onClick={() => handleDeleteClick(item.id)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+                <div className="icon-wrapper">
+                  <Icon.InfoCircle
+                    onClick={() => handleInfoClick(item.id)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
